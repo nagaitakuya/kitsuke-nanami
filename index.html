@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>着付けNANAMI</title>
   <style>
+    .gallery img {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .gallery.fade-in.show img {
+      opacity: 1;
+      transform: scale(1);
+    }
     body {
       font-family: "Hiragino Mincho ProN", serif;
       line-height: 1.8;
@@ -22,19 +31,32 @@
       margin: auto;
     }
     header {
-      background: #fceee3;
+      background: url('gallery6.jpeg') center/cover no-repeat;
       text-align: center;
       border-bottom: 6px double #d57a66;
+      position: relative;
     }
-    header img {
-      max-width: 100px;
-      display: block;
-      margin: 0 auto 10px auto;
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 248, 242, 0.85);
+      z-index: 0;
     }
-    h1 {
-      font-size: 2.2em;
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: 2.5em;
       color: #a24f3d;
       margin-bottom: 0.2em;
+    }
+    header p {
+      font-size: 1.2em;
     }
     h2 {
       border-bottom: 2px solid #f4c5b5;
@@ -69,8 +91,6 @@
     a:hover {
       text-decoration: underline;
     }
-  </style>
-  <style>
     @keyframes sparkle {
       0% { opacity: 0; transform: scale(0.5); }
       50% { opacity: 1; transform: scale(1.2); }
@@ -85,24 +105,17 @@
       animation: sparkle 2s infinite ease-in-out;
       pointer-events: none;
     }
-    .sakura {
-      position: fixed;
-      top: -50px;
-      width: 30px;
-      height: 30px;
-      background-image: url('https://cdn.jsdelivr.net/gh/akiroom/float_sakura/sakura.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: fall 10s linear infinite;
-      z-index: 9999;
+      .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
     }
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(100vh) rotate(360deg); }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
     }
-  </style>
+</style>
   <script>
-    // Sparkle effect
     document.addEventListener('DOMContentLoaded', () => {
       const sparkleContainer = document.querySelector('header');
       for (let i = 0; i < 20; i++) {
@@ -113,26 +126,42 @@
         sparkle.style.animationDelay = Math.random() * 5 + 's';
         sparkleContainer.appendChild(sparkle);
       }
-      // Sakura effect
-      for (let i = 0; i < 15; i++) {
-        const sakura = document.createElement('div');
-        sakura.className = 'sakura';
-        sakura.style.left = Math.random() * 100 + 'vw';
-        sakura.style.animationDelay = Math.random() * 10 + 's';
-        document.body.appendChild(sakura);
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // sparkle effect
+      const sparkleContainer = document.querySelector('header');
+      for (let i = 0; i < 20; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 5 + 's';
+        sparkleContainer.appendChild(sparkle);
       }
+
+      // scroll animation
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeEls.forEach(el => observer.observe(el));
     });
   </script>
 </head>
 <body>
-  <header style="background: url('gallery6.jpeg') center/cover no-repeat; position: relative;">
-    <div style="background-color: rgba(255, 248, 242, 0.85); padding: 2em; text-align: center;">
-      <h1 style="font-size: 2.5em; color: #a24f3d; margin-bottom: 0.2em;">着付けNANAMI</h1>
-      <p style="font-size: 1.2em;">きれいな着物を、きれいに着て、世界中の人たちに感動を</p>
-    </div>
+  <header>
+    <h1>着付けNANAMI</h1>
+    <p>きれいな着物を、きれいに着て、世界中の人たちに感動を</p>
   </header>
 
-  <section>
+  <section class="fade-in">
     <h2>自己紹介</h2>
     <p>はじめまして。着付けNANAMIのNANAMIです。着付け講習を1年学び、実務経験は5年。着崩れしない・苦しくない着付けを心がけています。ハートフルな接客で、初めての方にも安心を。ヘアセットにも対応しています。</p>
   </section>
@@ -162,9 +191,9 @@
     <p><strong>※お客様への感謝の気持ちとして、早朝料金・交通費はいただかない方針で対応しております。どうぞ安心してご利用ください。</strong></p>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>ギャラリー</h2>
-    <div class="gallery">
+    <div class="gallery fade-in">
       <div><img src="gallery1.png" alt="着付け投稿1"></div>
       <div><img src="gallery2.png" alt="着付け投稿2"></div>
       <div><img src="gallery3.png" alt="着付け投稿3"></div>
