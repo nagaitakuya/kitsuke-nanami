@@ -16,16 +16,8 @@
       transform: scale(1);
     }
     body {
-      font-weight: 500;
-      font-family: "Hiragino Mincho ProN", serif;
-      line-height: 1.8;
-      margin: 0;
-      padding: 0;
-      background-color: #fff8f2;
-      background-image: url("https://www.transparenttextures.com/patterns/fabric-of-squares.png");
-      background-repeat: repeat;
-      color: #333;
-    }
+      font-weight: 600;
+      font-size: 1.1em;
     header, section, footer {
       padding: 2em;
       max-width: 800px;
@@ -65,15 +57,17 @@
       font-size: 1.2em;
     }
     h2 {
+      font-size: 1.6em;
+      font-weight: bold;
       border-bottom: 2px solid #f4c5b5;
       padding-bottom: 0.3em;
       color: #a24f3d;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      background: linear-gradient(to right, #fff8f2, #fceee3);
+      border-radius: 6px;
+      padding: 0.5em 1em;
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .gallery div {
       flex: 1 1 300px;
@@ -173,9 +167,9 @@
 </head>
 <body>
   <header>
-    <h1>着付けNANAMI</h1>
-    <p>きれいな着物を、きれいに着て、世界中の人たちに感動を</p>
-  </header>
+  <h1>着付けNANAMI</h1>
+  <p style="font-size: 1.1em; line-height: 1.9;"></p>
+</header>
 
   <section class="fade-in delay-1" style="background: url('gallery7.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
     <h2>自己紹介</h2>
@@ -185,7 +179,7 @@
   <section class="fade-in delay-2" style="background: url('gallery8.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
     <h2>サービス</h2>
     <ul>
-      <li>訪問着付け（留袖・訪問着）</li>
+      <li style="font-size: 1.05em; line-height: 1.8;"></li>
       <li>振袖着付け（成人式・卒業式など）</li>
       <li>七五三着付け（3歳・5歳・7歳）</li>
       <li>男性袴着付け</li>
@@ -207,7 +201,7 @@
     <p><strong>※お客様への感謝の気持ちとして、早朝料金・交通費はいただかない方針で対応しております。どうぞ安心してご利用ください。</strong></p>
   </section>
 
-  <section class="fade-in" style="background: url('gallery10.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.8); background-blend-mode: lighten; margin-top: 3em; margin-bottom: 3em;">
+  <section class="fade-in" style="margin-top: 3em; margin-bottom: 3em;">
     <h2>ギャラリー</h2>
     <div class="gallery fade-in">
       <div><img src="gallery1.png" loading="lazy" alt="着付け投稿1"></div>
