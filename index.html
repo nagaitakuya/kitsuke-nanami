@@ -16,8 +16,12 @@
       transform: scale(1);
     }
     body {
+      background-image: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
+      background-color: #fff8f2;
+      background-repeat: repeat;
       font-weight: 600;
       font-size: 1.1em;
+    }
     header, section, footer {
       padding: 2em;
       max-width: 800px;
@@ -105,7 +109,7 @@
       animation: sparkle 2s infinite ease-in-out;
       pointer-events: none;
     }
-      .fade-in {
+    .fade-in {
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 1s ease forwards;
@@ -124,11 +128,6 @@
         transform: translateY(0);
       }
     }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 1s ease forwards;
-    }
     .fade-in.delay-1 { animation-delay: 0.3s; }
     .fade-in.delay-2 { animation-delay: 0.6s; }
     .fade-in.delay-3 { animation-delay: 0.9s; }
@@ -136,11 +135,9 @@
       margin-top: 3em;
       margin-bottom: 3em;
     }
-</style>
-  
+  </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // sparkle effect
       const sparkleContainer = document.querySelector('header');
       for (let i = 0; i < 20; i++) {
         const sparkle = document.createElement('div');
@@ -150,8 +147,6 @@
         sparkle.style.animationDelay = Math.random() * 5 + 's';
         sparkleContainer.appendChild(sparkle);
       }
-
-      // scroll animation
       const fadeEls = document.querySelectorAll('.fade-in');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -160,16 +155,15 @@
           }
         });
       }, { threshold: 0.1 });
-
       fadeEls.forEach(el => observer.observe(el));
     });
   </script>
 </head>
 <body>
   <header>
-  <h1>着付けNANAMI</h1>
-  <p style="font-size: 1.1em; line-height: 1.9;"></p>
-</header>
+    <h1>着付けNANAMI</h1>
+    <p style="font-size: 1.1em; line-height: 1.9;">きれいな着物を、きれいに着て、世界中の人たちに感動を</p>
+  </header>
 
   <section class="fade-in delay-1" style="background: url('gallery7.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
     <h2>自己紹介</h2>
@@ -179,7 +173,7 @@
   <section class="fade-in delay-2" style="background: url('gallery8.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
     <h2>サービス</h2>
     <ul>
-      <li style="font-size: 1.05em; line-height: 1.8;"></li>
+      <li>訪問着付け（留袖・訪問着）</li>
       <li>振袖着付け（成人式・卒業式など）</li>
       <li>七五三着付け（3歳・5歳・7歳）</li>
       <li>男性袴着付け</li>
@@ -201,13 +195,19 @@
     <p><strong>※お客様への感謝の気持ちとして、早朝料金・交通費はいただかない方針で対応しております。どうぞ安心してご利用ください。</strong></p>
   </section>
 
+  <section class="fade-in">
+    <h2>対応エリア・時間</h2>
+    <p>📍 東京都（江戸川区・江東区）／千葉県（浦安市・市川市）</p>
+    <p>🕰️ 営業時間：要相談（朝〜夕方中心、土日祝もご相談可）</p>
+  </section>
+
   <section class="fade-in" style="margin-top: 3em; margin-bottom: 3em;">
     <h2>ギャラリー</h2>
     <div class="gallery fade-in">
       <div><img src="gallery1.png" loading="lazy" alt="着付け投稿1"></div>
-      <div><img src="gallery2.png" alt="着付け投稿2"></div>
-      <div><img src="gallery3.png" alt="着付け投稿3"></div>
-      <div><img src="gallery4.png" alt="着付け投稿4"></div>
+      <div><img src="gallery2.png" loading="lazy" alt="着付け投稿2"></div>
+      <div><img src="gallery3.png" loading="lazy" alt="着付け投稿3"></div>
+      <div><img src="gallery4.png" loading="lazy" alt="着付け投稿4"></div>
     </div>
     <p style="text-align:center; margin-top: 1em; font-size: 1.1em; color: #555;">この他にもたくさんの実績写真を<a href="https://www.instagram.com/kirakira.nana.kituke_hairset" target="_blank">Instagram</a>に掲載しております。<br>ぜひご覧ください。</p>
   </section>
@@ -220,13 +220,6 @@
       <li>📝 フォームからのお問い合わせも可能です：<br>
         <a href="https://forms.gle/Z8qCqXs7BnFrrM6x9" target="_blank">▶ Googleフォームはこちら</a></li>
     </ul>
-    
-  </section>
-
-  <section class="fade-in">
-    <h2>対応エリア・時間</h2>
-    <p>📍 東京都（江戸川区・江東区）／千葉県（浦安市・市川市）</p>
-    <p>🕰️ 営業時間：要相談（朝〜夕方中心、土日祝もご相談可）</p>
   </section>
 
   <footer>
