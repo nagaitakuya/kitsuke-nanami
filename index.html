@@ -16,6 +16,7 @@
       transform: scale(1);
     }
     body {
+      font-weight: 500;
       font-family: "Hiragino Mincho ProN", serif;
       line-height: 1.8;
       margin: 0;
@@ -51,9 +52,14 @@
       z-index: 1;
     }
     header h1 {
-      font-size: 2.5em;
-      color: #a24f3d;
+      font-size: 3em;
+      color: #802020;
       margin-bottom: 0.2em;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      letter-spacing: 0.05em;
+      font-weight: bold;
+      border-bottom: 4px double #b55b4a;
+      padding-bottom: 0.2em;
     }
     header p {
       font-size: 1.2em;
@@ -114,6 +120,28 @@
       opacity: 1;
       transform: translateY(0);
     }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    .fade-in.delay-1 { animation-delay: 0.3s; }
+    .fade-in.delay-2 { animation-delay: 0.6s; }
+    .fade-in.delay-3 { animation-delay: 0.9s; }
+    section {
+      margin-top: 3em;
+      margin-bottom: 3em;
+    }
 </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -161,24 +189,7 @@
     <p>きれいな着物を、きれいに着て、世界中の人たちに感動を</p>
   </header>
 
-  <section class="fade-in" style="background: url('gallery7.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
-    <h2>自己紹介</h2>
-    <p>はじめまして。着付けNANAMIのNANAMIです。着付け講習を1年学び、実務経験は5年。着崩れしない・苦しくない着付けを心がけています。ハートフルな接客で、初めての方にも安心を。ヘアセットにも対応しています。</p>
-  </section>
-
-  <section style="background: url('gallery8.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
-    <h2>サービス</h2>
-    <ul>
-      <li>訪問着付け（留袖・訪問着）</li>
-      <li>振袖着付け（成人式・卒業式など）</li>
-      <li>七五三着付け（3歳・5歳・7歳）</li>
-      <li>男性袴着付け</li>
-      <li>着付け教室（個人・グループ）</li>
-      <li>ヘアセット（洋髪・和髪対応）</li>
-    </ul>
-  </section>
-
-  <section style="background: url('gallery9.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
+  <section class="fade-in delay-1"$1<section class="fade-in delay-2"$1<section class="fade-in delay-3" style="background: url('gallery9.jpeg') center/cover no-repeat; background-color: rgba(255,255,255,0.7); background-blend-mode: lighten;">
     <h2>料金</h2>
     <ul>
       <li>訪問着（留袖） - ￥7,000〜</li>
@@ -201,7 +212,7 @@
     </div>
   </section>
 
-  <section style="background-color:#fffefb; padding:2em; border:1px solid #f4c5b5; border-radius:8px;">
+  <section class="fade-in" style="background-color:#fffefb; padding:2em; border:1px solid #f4c5b5; border-radius:8px;">
     <h2>予約・お問い合わせ</h2>
     <ul style="list-style:none; padding:0;">
       <li>📧 メール：<a href="mailto:kiki_lala112@yahoo.co.jp">kiki_lala112@yahoo.co.jp</a></li>
@@ -213,7 +224,7 @@
     <p><a href="https://forms.gle/Z8qCqXs7BnFrrM6x9" target="_blank">▶ Googleフォームはこちら</a></p>
   </section>
 
-  <section>
+  <section class="fade-in">
     <h2>対応エリア・時間</h2>
     <p>📍 東京都（江戸川区・江東区）／千葉県（浦安市・市川市）</p>
     <p>🕰️ 営業時間：要相談（朝〜夕方中心、土日祝もご相談可）</p>
