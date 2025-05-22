@@ -70,6 +70,59 @@
       text-decoration: underline;
     }
   </style>
+  <style>
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #fff 0%, #fdd 60%, transparent 100%);
+      border-radius: 50%;
+      animation: sparkle 2s infinite ease-in-out;
+      pointer-events: none;
+    }
+    .sakura {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://cdn.jsdelivr.net/gh/akiroom/float_sakura/sakura.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fall 10s linear infinite;
+      z-index: 9999;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+  <script>
+    // Sparkle effect
+    document.addEventListener('DOMContentLoaded', () => {
+      const sparkleContainer = document.querySelector('header');
+      for (let i = 0; i < 20; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 5 + 's';
+        sparkleContainer.appendChild(sparkle);
+      }
+      // Sakura effect
+      for (let i = 0; i < 15; i++) {
+        const sakura = document.createElement('div');
+        sakura.className = 'sakura';
+        sakura.style.left = Math.random() * 100 + 'vw';
+        sakura.style.animationDelay = Math.random() * 10 + 's';
+        document.body.appendChild(sakura);
+      }
+    });
+  </script>
 </head>
 <body>
   <header style="background: url('gallery6.jpeg') center/cover no-repeat; position: relative;">
